@@ -1,0 +1,268 @@
+<div class="stepper-wrapper_header">
+    <div class="container">
+        <ul class="stepper-nav">
+            <li class="stepper-nav_links" [ngClass]="{'completedPage' : currentPage >= 1}">
+                <i class="far fa-circle"></i>
+                    <span class="">personal details</span>
+            </li>
+            <li class="stepper-nav_links" [ngClass]="{'completedPage' : currentPage >= 2}"> 
+                <i class="far fa-circle"></i>
+                <span>employer details</span>
+            </li>
+            <li class="stepper-nav_links" [ngClass]="{'completedPage' : currentPage >= 3}">
+                <i class="far fa-circle"></i>
+                <span>loan details</span>
+            </li>
+            <li class="stepper-nav_links" [ngClass]="{'completedPage' : currentPage >= 4}">
+                <i class="far fa-circle"></i>
+                <span>bvn verification</span>
+            </li>
+            <li class="stepper-nav_links" [ngClass]="{'completedPage' : currentPage >= 5}">
+                <i class="far fa-circle"></i>
+                <span>personal details</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="container">
+
+  <ng-container *ngIf="currentPage === 1">
+    <div class="stepper-form-parent">
+        <div class="stepper-form-child stepper-form-child-left">
+            <p class="stepper-form-child_title">
+                create account
+            </p>
+        </div>
+        <div class="stepper-form-child stepper-form-child-right">
+    
+            <form nz-form [formGroup]="personalDetailsForm">
+                <nz-form-item>
+                    <nz-form-label [nzSm]="9" [nzXs]="24" nzFor="phoneNumber">Phone Number</nz-form-label>
+                    <nz-form-control
+                      [nzSm]="14"
+                      [nzXs]="24"
+                    >
+                      <nz-input-group nzSize="large" [nzAddOnBefore]="addOnBeforeTemplate">
+                        <ng-template #addOnBeforeTemplate>
+                          <nz-select class="phone-select" formControlName="phoneNumberPrefix">
+                            <nz-option nzLabel="+233" nzValue="+233"></nz-option>
+                            <nz-option nzLabel="+234" nzValue="+234"></nz-option>
+                          </nz-select>
+                        </ng-template>
+                        <input id="phoneNumber" nz-input />
+                      </nz-input-group>
+                    </nz-form-control>
+                  </nz-form-item>
+                <nz-form-item>
+                  <nz-form-label [nzSm]="9" [nzXs]="24" nzFor="email">Email</nz-form-label>
+                  <nz-form-control [nzSm]="14" [nzXs]="24" >
+                    <input nz-input id="email" nzSize="large" formControlName="email" />
+                  </nz-form-control>
+                </nz-form-item>
+                  <nz-form-item>
+                    <nz-form-label [nzSm]="9" [nzXs]="24" nzFor="bvn">BVN</nz-form-label>
+                    <nz-form-control [nzSm]="14" [nzXs]="24" >
+                      <input nz-input id="bvn" nzSize="large" formControlName="bvn" />
+                    </nz-form-control>
+                  </nz-form-item>
+              </form>
+
+            <button (click)="goToNext()" class="stepper-form-child-right_btn" nz-button nzType="default" nzSize="large">Next <i nz-icon nzType="right" nzTheme="outline"></i></button>
+        </div>
+       </div>
+  </ng-container>
+
+
+  <ng-container *ngIf="currentPage === 2">
+    <div class="stepper-form-parent">
+        <div class="stepper-form-child stepper-form-child-left">
+            <p class="stepper-form-child_title">
+                Where do you work?
+            </p>
+        </div>
+        <div class="stepper-form-child stepper-form-child-right">
+    
+            <form nz-form [formGroup]="personalDetailsForm">
+                <nz-form-item>
+                    <nz-form-label [nzSm]="9" [nzXs]="24" nzFor="phoneNumber">Phone Number</nz-form-label>
+                    <nz-form-control
+                      [nzSm]="14"
+                      [nzXs]="24"
+                    >
+                      <nz-input-group nzSize="large" [nzAddOnBefore]="addOnBeforeTemplate">
+                        <ng-template #addOnBeforeTemplate>
+                          <nz-select class="phone-select" formControlName="phoneNumberPrefix">
+                            <nz-option nzLabel="+233" nzValue="+233"></nz-option>
+                            <nz-option nzLabel="+234" nzValue="+234"></nz-option>
+                          </nz-select>
+                        </ng-template>
+                        <input id="phoneNumber" nz-input />
+                      </nz-input-group>
+                    </nz-form-control>
+                  </nz-form-item>
+                <nz-form-item>
+                  <nz-form-label [nzSm]="9" [nzXs]="24" nzFor="email">Email</nz-form-label>
+                  <nz-form-control [nzSm]="14" [nzXs]="24" >
+                    <input nz-input id="email" nzSize="large" formControlName="email" />
+                  </nz-form-control>
+                </nz-form-item>
+                  <nz-form-item>
+                    <nz-form-label [nzSm]="9" [nzXs]="24" nzFor="bvn">BVN</nz-form-label>
+                    <nz-form-control [nzSm]="14" [nzXs]="24" >
+                      <input nz-input id="bvn" nzSize="large" formControlName="bvn" />
+                    </nz-form-control>
+                  </nz-form-item>
+              </form>
+    
+    
+             <button (click)="goToPrevious()" class="stepper-form-child-right_btn" nz-button nzType="default" nzSize="large"> <i nz-icon nzType="left" nzTheme="outline"></i> Previous</button>
+            <button (click)="goToNext()" class="stepper-form-child-right_btn" nz-button nzType="default" nzSize="large">Next <i nz-icon nzType="right" nzTheme="outline"></i></button>
+        </div>
+       </div>
+  </ng-container>
+
+
+  <ng-container *ngIf="currentPage === 3">
+    <div class="stepper-form-parent">
+        <div class="stepper-form-child stepper-form-child-left">
+            <p class="stepper-form-child_title">
+                How much do you want?
+            </p>
+        </div>
+        <div class="stepper-form-child stepper-form-child-right">
+    
+            <form nz-form [formGroup]="personalDetailsForm">
+                <nz-form-item>
+                    <nz-form-label [nzSm]="9" [nzXs]="24" nzFor="phoneNumber">Phone Number</nz-form-label>
+                    <nz-form-control
+                      [nzSm]="14"
+                      [nzXs]="24"
+                    >
+                      <nz-input-group nzSize="large" [nzAddOnBefore]="addOnBeforeTemplate">
+                        <ng-template #addOnBeforeTemplate>
+                          <nz-select class="phone-select" formControlName="phoneNumberPrefix">
+                            <nz-option nzLabel="+233" nzValue="+233"></nz-option>
+                            <nz-option nzLabel="+234" nzValue="+234"></nz-option>
+                          </nz-select>
+                        </ng-template>
+                        <input id="phoneNumber" nz-input />
+                      </nz-input-group>
+                    </nz-form-control>
+                  </nz-form-item>
+                <nz-form-item>
+                  <nz-form-label [nzSm]="9" [nzXs]="24" nzFor="email">Email</nz-form-label>
+                  <nz-form-control [nzSm]="14" [nzXs]="24" >
+                    <input nz-input id="email" nzSize="large" formControlName="email" />
+                  </nz-form-control>
+                </nz-form-item>
+                  <nz-form-item>
+                    <nz-form-label [nzSm]="9" [nzXs]="24" nzFor="bvn">BVN</nz-form-label>
+                    <nz-form-control [nzSm]="14" [nzXs]="24" >
+                      <input nz-input id="bvn" nzSize="large" formControlName="bvn" />
+                    </nz-form-control>
+                  </nz-form-item>
+              </form>
+    
+    
+             <button (click)="goToPrevious()" class="stepper-form-child-right_btn" nz-button nzType="default" nzSize="large"> <i nz-icon nzType="left" nzTheme="outline"></i> Previous</button>
+            <button (click)="goToNext()" class="stepper-form-child-right_btn" nz-button nzType="default" nzSize="large">Next <i nz-icon nzType="right" nzTheme="outline"></i></button>
+        </div>
+       </div>
+  </ng-container>
+
+  <ng-container *ngIf="currentPage === 4">
+    <div class="stepper-form-parent">
+        <div class="stepper-form-child stepper-form-child-left">
+            <p class="stepper-form-child_title">
+                Bank verification
+            </p>
+        </div>
+        <div class="stepper-form-child stepper-form-child-right">
+    
+            <form nz-form [formGroup]="personalDetailsForm">
+                <nz-form-item>
+                    <nz-form-label [nzSm]="9" [nzXs]="24" nzFor="phoneNumber">Phone Number</nz-form-label>
+                    <nz-form-control
+                      [nzSm]="14"
+                      [nzXs]="24"
+                    >
+                      <nz-input-group nzSize="large" [nzAddOnBefore]="addOnBeforeTemplate">
+                        <ng-template #addOnBeforeTemplate>
+                          <nz-select class="phone-select" formControlName="phoneNumberPrefix">
+                            <nz-option nzLabel="+233" nzValue="+233"></nz-option>
+                            <nz-option nzLabel="+234" nzValue="+234"></nz-option>
+                          </nz-select>
+                        </ng-template>
+                        <input id="phoneNumber" nz-input />
+                      </nz-input-group>
+                    </nz-form-control>
+                  </nz-form-item>
+                <nz-form-item>
+                  <nz-form-label [nzSm]="9" [nzXs]="24" nzFor="email">Email</nz-form-label>
+                  <nz-form-control [nzSm]="14" [nzXs]="24" >
+                    <input nz-input id="email" nzSize="large" formControlName="email" />
+                  </nz-form-control>
+                </nz-form-item>
+                  <nz-form-item>
+                    <nz-form-label [nzSm]="9" [nzXs]="24" nzFor="bvn">BVN</nz-form-label>
+                    <nz-form-control [nzSm]="14" [nzXs]="24" >
+                      <input nz-input id="bvn" nzSize="large" formControlName="bvn" />
+                    </nz-form-control>
+                  </nz-form-item>
+              </form>
+    
+    
+             <button (click)="goToPrevious()" class="stepper-form-child-right_btn" nz-button nzType="default" nzSize="large"> <i nz-icon nzType="left" nzTheme="outline"></i> Previous</button>
+            <button (click)="goToNext()" class="stepper-form-child-right_btn" nz-button nzType="default" nzSize="large">Next <i nz-icon nzType="right" nzTheme="outline"></i></button>
+        </div>
+       </div>
+  </ng-container>
+
+  <ng-container *ngIf="currentPage === 5">
+    <div class="stepper-form-parent">
+        <div class="stepper-form-child stepper-form-child-left">
+            <p class="stepper-form-child_title">
+                create account
+            </p>
+        </div>
+        <div class="stepper-form-child stepper-form-child-right">
+    
+            <form nz-form [formGroup]="personalDetailsForm">
+                <nz-form-item>
+                    <nz-form-label [nzSm]="9" [nzXs]="24" nzFor="phoneNumber">Phone Number</nz-form-label>
+                    <nz-form-control
+                      [nzSm]="14"
+                      [nzXs]="24"
+                    >
+                      <nz-input-group nzSize="large" [nzAddOnBefore]="addOnBeforeTemplate">
+                        <ng-template #addOnBeforeTemplate>
+                          <nz-select class="phone-select" formControlName="phoneNumberPrefix">
+                            <nz-option nzLabel="+233" nzValue="+233"></nz-option>
+                            <nz-option nzLabel="+234" nzValue="+234"></nz-option>
+                          </nz-select>
+                        </ng-template>
+                        <input id="phoneNumber" nz-input />
+                      </nz-input-group>
+                    </nz-form-control>
+                  </nz-form-item>
+                <nz-form-item>
+                  <nz-form-label [nzSm]="9" [nzXs]="24" nzFor="email">Email</nz-form-label>
+                  <nz-form-control [nzSm]="14" [nzXs]="24" >
+                    <input nz-input id="email" nzSize="large" formControlName="email" />
+                  </nz-form-control>
+                </nz-form-item>
+                  <nz-form-item>
+                    <nz-form-label [nzSm]="9" [nzXs]="24" nzFor="bvn">BVN</nz-form-label>
+                    <nz-form-control [nzSm]="14" [nzXs]="24" >
+                      <input nz-input id="bvn" nzSize="large" formControlName="bvn" />
+                    </nz-form-control>
+                  </nz-form-item>
+              </form>
+    
+    
+              <button (click)="goToPrevious()" class="stepper-form-child-right_btn" nz-button nzType="default" nzSize="large"> <i nz-icon nzType="left" nzTheme="outline"></i> Previous</button>
+              <button (click)="goToNext()" class="stepper-form-child-right_btn" nz-button nzType="default" nzSize="large">Next <i nz-icon nzType="right" nzTheme="outline"></i></button>
+        </div>
+       </div>
+  </ng-container>
+</div>

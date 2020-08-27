@@ -1,0 +1,98 @@
+.stepper-wrapper_header{
+    padding: .35rem;
+    background-color: rgb(255 0 0 / .1);
+
+    .stepper-nav{
+        list-style-type: none;
+        display: grid;
+        margin: 0;
+        padding: 0;
+        grid-template-columns: repeat(5, 1fr);
+    
+        &_links{
+            // min-height: 50px;
+            background-color: white;
+            border: 1px solid rgb(128 128 128 / .1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: .75rem 0;
+    
+    
+            i {
+                margin-left: .5rem;
+                margin-right: .5rem;
+                color: red;
+            }
+            span{
+                color: gray;
+                text-transform: uppercase;
+                font-weight: bold;
+                font-size: 75%;
+            }
+        }
+    }
+}
+
+.completedPage{
+    background-color: red !important;
+
+    i, span{
+        color: white !important;
+    }
+}
+
+.stepper-form-parent{
+    display: grid;
+    padding: 5rem;
+    column-gap: 10px;
+    grid-template-columns: minmax(200px, 35%) 1fr;
+
+    .stepper-form-child{
+        text-align: right;
+
+        &_title{
+            text-transform: capitalize;
+            position: relative;
+            font-weight: bolder;
+            font-size: 150%;
+
+            &::before{
+                content: "";
+                width: 20%;
+                background-color: red;
+                height: 5px;
+                position: absolute;
+                bottom: -5px;
+            }
+        }
+
+        &-right{
+            nz-form-item{
+                margin-bottom: 3rem;
+            }
+
+            &_btn{
+                margin: 0 .35rem;
+                background-color: red;
+                color: white;
+                border: none;
+
+                &:hover {
+                    color: white;
+                    border: none;
+                }
+
+                &:active {
+                    color: white;
+                    border: none;
+                }
+
+                &:active {
+                    color: white;
+                    border: none;
+                }
+            }
+        }
+    }
+}
